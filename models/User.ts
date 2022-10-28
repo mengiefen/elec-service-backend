@@ -9,6 +9,8 @@ export interface User extends mongoose.Document {
   city: string;
   state: string;
   country: string;
+  store: string;
+  role: string;
 }
 
 const userSchema = new mongoose.Schema({
@@ -42,6 +44,16 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     default: 'Ethiopia',
+  },
+  store: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Store',
+    required: true,
+  },
+  role: {
+    type: String,
+    required: true,
+    default: 'user',
   },
 });
 
